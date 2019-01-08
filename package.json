@@ -1,0 +1,30 @@
+{
+  "name": "App1.8",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.1.5",
+    "babel-runtime": "^6.26.0",
+    "lodash": "^4.17.11",
+    "meteor-node-stubs": "^0.4.1",
+    "ng2-pdf-viewer": "^5.2.3",
+    "pdfvuer": "^1.0.5",
+    "simpl-schema": "^1.5.3",
+    "vue": "^2.5.21",
+    "vue-instant-pdf-viewer": "^1.0.2",
+    "vue-pdf": "^4.0.5",
+    "worker-loader": "^2.0.0"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}
