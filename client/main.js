@@ -1,11 +1,27 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from './App_Firebase';
 import './main.html';
+import * as firebase from 'firebase'
+import {store} from './store'
 
-
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+import router from './routers/router'
 Meteor.startup(() => {
   new Vue({
     el: '#app',
+    router,
     ...App,
+    store,
+    created(){
+      firebase.initializeApp({
+        apiKey: "AIzaSyA2oCFWLrPK77wzACeaOFv8N8-hyH_YGTU",
+        authDomain: "create-update-file.firebaseapp.com",
+        databaseURL: "https://create-update-file.firebaseio.com",
+        projectId: "create-update-file",
+        storageBucket: "create-update-file.appspot.com",
+       // messagingSenderId: "593450601341"
+      })
+    }
   });
 });

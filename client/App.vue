@@ -16,9 +16,7 @@ export default {
     methods: {
         login(e) {
             {
-                console.log('e:' + e);
                 e.preventDefault();
-                console.log('e++' + e.preventDefault());
                 Meteor.loginWithFacebook({
                     requestPermissions: ['public_profile', 'email']
                 }, function (err) {
