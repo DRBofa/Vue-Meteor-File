@@ -1,37 +1,47 @@
 <template>
-    <div>
-
-       <button @click="getFile">Get File</button>
-      
-       <iframe width="100%" height="720px"  :src="fileUrl"></iframe>
-     
+<div>
+  <div id="app">
+     <h1>Hie</h1>
     </div>
+</div>
 </template>
+
 <script>
-import {Meteor} from 'meteor/meteor'
+
+import {
+    Meteor
+} from 'meteor/meteor'
 export default {
-    name:'myApp',
-    data(){
-        return{
-            fileUrl:null,
-            name:'',
-            age:'',
-            myfile:null,
-            _id:'',
-            ext:'',
+   name: 'app',
+  
+    data() {
+
+        return {
+             pdfHeight: '500px',
+            fileUrl: null,
+            name: '',
+            age: '',
+            myfile: null,
+            _id: '',
+            ext: '',
+            isshowpdf: false
+
         }
     },
-    methods:{
 
-        getFile(){
-            Meteor.call('findDoc',(error,result)=>{
-                if(!error){
-                    console.log(result);
-                    this.fileUrl=result[0].fileUrl+'#toolbar=0&navpanes=0&scrollbar=0#view=FitH'
-                    this.name=result[0].name
-                    this.age=result[0].age
-                    this._id=result[0]._id
-                    this.ext=result[0].ext
+   
+    mounted() {
+        this.getFile()
+    },
+    methods: {
+        getFile() {
+            Meteor.call('findDoc', (error, result) => {
+                if (!error) {
+                    this.fileUrl = result[0].fileUrl 
+                    this.name = result[0].name
+                    this.age = result[0].age
+                    this._id = result[0]._id
+                    this.ext = result[0].ext
                 }
                 console.log(error);
             })
@@ -40,3 +50,7 @@ export default {
     }
 }
 </script>
+
+<style>
+
+</style>

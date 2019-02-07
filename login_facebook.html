@@ -1,0 +1,50 @@
+<!-- 
+<html>
+
+<head>
+    
+    <title>Page Title</title>
+</head>
+
+<body>
+    <h1>Login facebook</h1>
+    <button onclick="loginFacebook()">login</button>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyA2oCFWLrPK77wzACeaOFv8N8-hyH_YGTU",
+            authDomain: "create-update-file.firebaseapp.com",
+            databaseURL: "https://create-update-file.firebaseio.com",
+            projectId: "create-update-file",
+            storageBucket: "create-update-file.appspot.com",
+            messagingSenderId: "63734693390"
+        };
+        firebase.initializeApp(config);
+        var provider = new firebase.auth.FacebookAuthProvider();
+        function loginFacebook(){
+            firebase.auth().signInWithPopup(provider)
+                .then(function (result) {
+                    var token = result.credential.accessToken;
+                    var user = result.user;
+                    console.log(result);
+                    console.log(token);
+                    console.log(user);
+                }).catch(function (error) {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    var email = error.email;
+                    var credential = error.credential;
+                    console.log(errorCode);
+                    console.log(errorMessage);
+                    console.log(email);
+                    console.log(credential);
+
+                })
+        }
+    </script>
+</body>
+
+
+</html> -->
